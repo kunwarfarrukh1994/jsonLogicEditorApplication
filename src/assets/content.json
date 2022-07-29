@@ -1,0 +1,26 @@
+[
+  {
+      "name": "Birth Certificate",
+      "edition": "2019",
+      "pages": null,
+      "templateLibrary": "Personal Identity",
+      "entityId": "277b8acd-b8b5-43c0-8b83-6314ec99b46c",
+      "formPages": [],
+      "jsonSchema": "{ \"$schema\": \"http://json-schema.org/draft-03/schema#\",\"id\": \"http://json-schema.org/draft-03/schema#\",\"description\":\"Birth Certificate\",\"type\":\"object\",\"properties\": { \"Name\": { \"type\":\"string\",\"title\":\"Name\",\"removePrefix\":\"\",\"removeSuffix\":\"\",\"validationCondition\":\"\",\"valueExpression\":\"\",\"extractionScript\":\"\",\"importance\":\"Not Important\",\"visibility\":\"Visible\",\"sensitivity\":\"Normal\",\"recognitionType\":\"Text\",\"sortOrder\":\"1\"},\"DateofBirth\": { \"type\":\"string\",\"title\":\"Date of Birth\",\"removePrefix\":\"\",\"removeSuffix\":\"\",\"validationCondition\":\"\",\"valueExpression\":\"\",\"extractionScript\":\"\",\"importance\":\"Not Important\",\"visibility\":\"Visible\",\"sensitivity\":\"Normal\",\"recognitionType\":\"Text\",\"sortOrder\":\"2\",\"pattern\":\"(?:(?<!\\\\:)(?<!\\\\:\\\\d)[0-3]?\\\\d(?:st|nd|rd|th)?.+(?:of\\\\s+)?(?:jan\\\\.?|january|feb\\\\.?|february|mar\\\\.?|march|apr\\\\.?|april|may|jun\\\\.?|june|jul\\\\.?|july|aug\\\\.?|august|sep\\\\.?|september|oct\\\\.?|october|nov\\\\.?|november|dec\\\\.?|december)|(?:jan\\\\.?|january|feb\\\\.?|february|mar\\\\.?|march|apr\\\\.?|april|may|jun\\\\.?|june|jul\\\\.?|july|aug\\\\.?|august|sep\\\\.?|september|oct\\\\.?|october|nov\\\\.?|november|dec\\\\.?|december)\\\\s+(?<!\\\\:)(?<!\\\\:\\\\d)[0-3]?\\\\d(?:st|nd|rd|th)?)(?:\\\\,)?\\\\s*(?:\\\\d{4})?|[0-3]?\\\\d[-\\\\./][0-3]?\\\\d[-\\\\./]\\\\d{2,4}\",\"validation\":\"48c86410-5872-4ea3-948b-4b4c7a8041e8\"},\"Jurisdiction\": { \"type\":\"string\",\"title\":\"Jurisdiction\",\"removePrefix\":\"\",\"removeSuffix\":\"\",\"validationCondition\":\"\",\"valueExpression\":\"\",\"extractionScript\":\"\",\"importance\":\"Not Important\",\"visibility\":\"Visible\",\"sensitivity\":\"Normal\",\"recognitionType\":\"Text\",\"sortOrder\":\"3\"}} }",
+      "outputMapping": null,
+      "isUnstructured": true,
+      "id": "f39dfefd-a135-415e-87af-08d8565ebee9"
+  },
+  {
+      "name": "Unstructured",
+      "edition": null,
+      "pages": 0,
+      "templateLibrary": null,
+      "entityId": "00000000-0000-0000-0000-000000000000",
+      "formPages": [],
+      "jsonSchema": null,
+      "outputMapping": null,
+      "isUnstructured": true,
+      "id": "00000000-0000-0000-0000-000000000000"
+  }
+]

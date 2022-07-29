@@ -1,0 +1,93 @@
+.errorborder{
+  border: 1px solid red !important;
+  border-radius: 5px !important;
+  -webkit-border-radius: 5px !important;
+  -moz-border-radius: 5px !important;
+  -ms-border-radius: 5px !important;
+  -o-border-radius: 5px !important;
+}
+.inputwidth input{
+  width: 100% !important;
+  border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 5px;
+}
+.inputwidth input:focus{
+ outline: none;
+}
+.paddingleft{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.emptypadding{
+
+  padding: 0 !important;
+}
+.emptyspace{
+
+  text-align: center;
+  padding-top: 3px;
+
+}
+.selectedIcon
+{
+  background-color: #dee2e6 !important;
+}
+.emptycontrol {
+    padding: 17px;
+    border: 1px solid #e5e5e5;
+    height: 36px;
+    max-height: 36px;
+    max-width: 190px;
+    width: 100%;
+    BORDER-RADIUS: 4px;
+}
+.componentclass .row {
+    align-items: center;
+}
+.componentclass .row .col-md-2 {
+    text-align: center;
+}
+.componentclass  .col-md-2 {
+    background-color: #f6f6f6;
+    height: 36px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #e9e9e9;
+}
+
+.componentclass  .col-md-2 img {
+    max-width: 22px;
+    cursor: pointer;
+}
+.componentclass .col-md-6.ng-star-inserted {
+    padding: 0;
+    height: 36px;
+}
+.componentclass  .row {
+    flex-wrap: nowrap;
+}
+.componentclass  .row {
+    flex-wrap: nowrap;
+}
+.lineone {
+    margin-top: 10px;
+}
+.imgvar{
+  background-image: url(../../assests/images/var.png);
+  background-repeat: no-repeat;
+    background-position: center;
+    max-width: 30px;
+    height: 30px;
+    width: 100%;
+    background-size: contain;
+    cursor: pointer;
+}
+.imgvar.imgfunc{
+  background-image: url(../../assests/images/func.png);
+}
+.imgvar.imgtyping{
+  background-image: url(../../assests/images/typing.png);
+}
+

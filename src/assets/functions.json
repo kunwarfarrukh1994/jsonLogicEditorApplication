@@ -1,0 +1,68 @@
+[
+  {
+    "name": "substring",
+    "controlType": "function",
+    "type": null,
+    "returnType": "string",
+    "parameters": [
+      {
+        "name": "string",
+        "type": "string",
+        "controlType": null,
+        "returnType": null,
+        "parameters": null
+      },
+      {
+        "name": "number",
+        "type": "number",
+        "returnType": null,
+        "controlType": null,
+        "parameters": null
+      },
+      {
+        "name": "length?",
+        "type": "number",
+        "returnType": null,
+        "controlType": null,
+        "parameters": null
+      }
+    ]
+  },
+  {
+    "name": "floor",
+    "returnType": "number",
+    "controlType": "function",
+    "type": null,
+    "parameters": [
+      {
+        "name": "number",
+        "type": "number",
+        "controlType": null,
+        "parameters": null,
+        "returnType": null
+      }
+    ]
+  },
+  {
+    "name": "cat",
+    "returnType": "string",
+    "controlType": "function",
+    "type": null,
+    "parameters": [
+      {
+        "name": "string1",
+        "type": "string",
+        "controlType": null,
+        "parameters": null,
+        "returnType": null
+      },
+      {
+        "name": "string2",
+        "type": "string",
+        "controlType": null,
+        "parameters": null,
+        "returnType": null
+      }
+    ]
+  }
+]

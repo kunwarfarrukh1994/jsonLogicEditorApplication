@@ -1,0 +1,56 @@
+<ng-container class="linemian" id="parent" *ngTemplateOutlet="recursivecomponent;context: {component:form}">
+</ng-container>
+<ng-template #recursivecomponent let-componentForm="component">
+    <form class="componentclass" [formGroup]="componentForm">
+        <div class="row" [class]="'line'+componentForm.get('padding')?.value+'px'"
+            [style.margin-left]="componentForm.get('padding')?.value+'px'">
+            <div *ngIf="componentForm.get('controlType')?.value==null" class="emptycontrol emptypadding">
+            <p class="emptyspace"> {{this.getPlaceHolder(componentForm)=="Select null"?"":this.getPlaceHolder(componentForm)}}</p>
+            </div>
+            <div class="col-md-6 paddingleft inputwidth" *ngIf="componentForm.get('controlType')?.value=='value'">
+                <!-- <input  [placeholder]="this.getPlaceHolder(componentForm)" [type]="componentForm.get('type')?.value"
+                    class="form-control" placeholder="Enter Some Value" formControlName="value" /> -->
+                <div *ngIf="componentForm.get('type')?.value!='date'">
+                    <input [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" [placeholder]="this.getPlaceHolder(componentForm)" [type]="componentForm.get('type')?.value"
+                        class="form-controls" placeholder="Enter Some Value" formControlName="value" />
+                </div>
+                <div *ngIf="componentForm.get('type')?.value=='date'">
+                    <input [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" (keydown)="disableDateEntry($event,expressionDatePicker)" class="form-controls m-input"
+                        type="datetime" bsDatepicker #expressionDatePicker="bsDatepicker" formControlName="value"
+                        [bsConfig]="{dateInputFormat:'YYYY-MM-DD'}" />
+                </div>
+            </div>
+            <div class="col-md-6 paddingleft"
+                *ngIf="componentForm.get('controlType')?.value=='variable'  || componentForm.get('controlType')?.value=='function'">
+                <ng-select [ngClass]="{errorborder: this.checkerror(componentForm.get('value'))}" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="form-controls" [items]="filtered_fieldsList" (open)="filterlist(componentForm)"
+                    (change)="onSelect(componentForm,componentForm.get('controlType')?.value)" bindLabel="label"
+                    [clearable]="false" bindValue="value" [placeholder]="this.getPlaceHolder(componentForm)"
+                    formControlName="value">
+                </ng-select>
+            </div>
+            <!-- *ngIf="componentForm.get('type')?.value!=null" -->
+            <div *ngIf="showValueTypeControl(componentForm)" class="col-md-2"[ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='value'}">
+
+
+              <!-- <i (click)="changeToValue(componentForm)" class="fa fa-keyboard" aria-hidden="true"></i> -->
+
+              <span [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" (click)="changeToValue(componentForm)"></span>
+
+            </div>
+            <div class="col-md-2" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='variable'}">
+
+                    <span [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" (click)="changeToVariable(componentForm)"></span>
+            </div>
+            <div [ngClass]="{errorborder: this.checkerror(componentForm.get('controlType'))}" class="col-md-2" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='function'}">
+
+                    <span [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" (click)="changeToFunction(componentForm)"></span>
+            </div>
+        </div>
+        <div class="lineone" *ngIf="componentForm.get('parameters')?.value!=undefined">
+            <div class="linetwo" *ngFor="let group of componentForm.get('parameters')['controls'];let i=index">
+                <ng-container class="linethree" *ngTemplateOutlet="recursivecomponent;context: {component: group}">
+                </ng-container>
+            </div>
+        </div>
+    </form>
+</ng-template>

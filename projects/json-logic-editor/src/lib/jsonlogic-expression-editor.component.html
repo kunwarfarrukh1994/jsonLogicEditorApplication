@@ -1,0 +1,48 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-1 text-center">And/Or</div>
+        <div class="col-md-4 text-center">Field *</div>
+        <div class="col-md-1 text-center">Operator *</div>
+        <div class="col-md-5 text-center">Value *</div>
+    </div>
+    <div class="formMargin" *ngFor="let group of expressionformArray['controls'];let i=index">
+        <div [formGroup]="this.getFormGroup(group)">
+            <div class="row">
+                <div class="col-md-1 noPadding text-center">
+                    <div class="labelAdd">
+                      <span class="imgbtn imgadd" (click)="addCheckExpression(i)"></span>
+                    </div>
+                    <div class="labelRemove" *ngIf="expressionformArray['length']>1">
+                            <span class="imgbtn imgminus" (click)="removecheckExpresssion(i,group)"></span>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div *ngIf="i==0">&nbsp;</div>
+                    <div *ngIf="i!=0">
+                        <ng-select class="form-controls" [id]="'logicaloperator'+i" [items]="logicalOperatorList"
+                            ngDefaultControl bindLabel="label" [clearable]="false" bindValue="value"
+                            placeholder="And/Or" formControlName="logicalOperator">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col-md-4" *ngIf="group?.get('leftComponent')!=undefined">
+                    <app-jsonlogic  [componentLocation]="'left'" [fieldsList]="variables"
+                        [form]="this.getFormGroup(group.get('leftComponent'))">
+                    </app-jsonlogic>
+                </div>
+                <div class="col-md-1" >
+                    <ng-select [ngClass]="{errorborder: this.checkerror(group.get('operator'))}" (open)="filterOperatorList(i)" class="form-controls" [id]="'operator'+i"
+                        [items]="filtered_operatorList" bindLabel="label" [clearable]="false" bindValue="value"
+                        placeholder="operator" formControlName="operator">
+                    </ng-select>
+                </div>
+                <div class="col-md-5" *ngIf="group.get('fieldtype')?.value!=null && group?.get('rightComponent')!=undefined ">
+                    <app-jsonlogic #jsoneditor [componentLocation]="'right'" [fieldsList]="variables"
+                        [form]="this.getFormGroup(group.get('rightComponent'))">
+                    </app-jsonlogic>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
