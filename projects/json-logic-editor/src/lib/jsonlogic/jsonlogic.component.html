@@ -34,16 +34,16 @@
 
               <!-- <i (click)="changeToValue(componentForm)" class="fa fa-keyboard" aria-hidden="true"></i> -->
 
-              <span [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" (click)="changeToValue(componentForm)"></span>
+              <img [src]="keyboard" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" (click)="changeToValue(componentForm)"/>
 
             </div>
             <div class="col-md-2" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='variable'}">
 
-                    <span [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" (click)="changeToVariable(componentForm)"></span>
+                    <img [src]="variable" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" (click)="changeToVariable(componentForm)"/>
             </div>
             <div [ngClass]="{errorborder: this.checkerror(componentForm.get('controlType'))}" class="col-md-2" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='function'}">
 
-                    <span [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" (click)="changeToFunction(componentForm)"></span>
+                    <img [src]="function"  [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" (click)="changeToFunction(componentForm)"/>
             </div>
         </div>
         <div class="lineone" *ngIf="componentForm.get('parameters')?.value!=undefined">

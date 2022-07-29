@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ICheckExpressionFieldLookUp, ICheckListExpression, ICustomJsonLogicComponent } from './interfaces/IJsonEditor';
 
 @Component({
@@ -14,6 +15,8 @@ export class JsonlogicExpressionEditorComponent implements OnInit,AfterViewInit 
     @Input() jsonLogic: string | undefined;
     @Input() variables: ICheckExpressionFieldLookUp[] =[];
     @Input() functions: ICheckExpressionFieldLookUp[] =[];
+    plus="https://www.clipartmax.com/png/middle/79-791760_plus-addition-sign-circle-vector-1-icon-png.png";
+    minus="https://icons-for-free.com/download-icon-minus-131964784904142604_512.png";
     JSON_LOGIC: String| undefined;
     JsonLogicObj:any={};
     checklistTemplateItemExpressions: ICheckListExpression[] = [];
@@ -66,8 +69,8 @@ export class JsonlogicExpressionEditorComponent implements OnInit,AfterViewInit 
             value: 0
         }
     ]
-
-    constructor(private fb: FormBuilder) { }
+    constructor(private fb: FormBuilder) {
+     }
   ngAfterViewInit() {
   }
     ngOnInit() {

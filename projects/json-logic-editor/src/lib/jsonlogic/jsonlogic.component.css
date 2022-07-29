@@ -75,7 +75,7 @@
     margin-top: 10px;
 }
 .imgvar{
-  background-image: url(../../assests/images/var.png);
+  /* background-image: url(../../assests/images/var.png); */
   background-repeat: no-repeat;
     background-position: center;
     max-width: 30px;
@@ -84,10 +84,10 @@
     background-size: contain;
     cursor: pointer;
 }
-.imgvar.imgfunc{
+/* .imgvar.imgfunc{
   background-image: url(../../assests/images/func.png);
 }
 .imgvar.imgtyping{
   background-image: url(../../assests/images/typing.png);
-}
+} */
 

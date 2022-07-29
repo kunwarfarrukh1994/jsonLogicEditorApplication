@@ -32,7 +32,7 @@
   height: 30px;
 }
 .imgbtn{
-  background-image: url(../../assests/images/var.png);
+  /* background-image: url(../../assests/images/var.png); */
   background-repeat: no-repeat;
     background-position: center;
     max-width: 30px;
@@ -43,12 +43,12 @@
     position: relative;
     display: block;
 }
-.imgbtn.imgminus{
+/* .imgbtn.imgminus{
   background-image: url(../assests/images/minus.png);
-}
-.imgbtn.imgadd{
+} */
+/* .imgbtn.imgadd{
   background-image: url(../assests/images/add.png);
-}
+} */
 .lineone input.form-controls.ng-untouched.ng-pristine.ng-valid {
   padding: 5px 10px;
   color: #333;

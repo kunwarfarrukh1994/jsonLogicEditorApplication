@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col-md-1 noPadding text-center">
                     <div class="labelAdd">
-                      <span class="imgbtn imgadd" (click)="addCheckExpression(i)"></span>
+                      <img [src]="plus" class="imgbtn imgadd" (click)="addCheckExpression(i)"/>
                     </div>
                     <div class="labelRemove" *ngIf="expressionformArray['length']>1">
-                            <span class="imgbtn imgminus" (click)="removecheckExpresssion(i,group)"></span>
+                            <img [src]="minus" class="imgbtn imgminus" (click)="removecheckExpresssion(i,group)"/>
                     </div>
                 </div>
                 <div class="col-md-1">
