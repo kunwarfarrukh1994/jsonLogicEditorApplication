@@ -4,51 +4,73 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Install and Imports
 
-## Step 1:
-install : npm install bootstrap --save
-### Add index.html :
-< href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
+### Step 1 Install :
+#### ngx-bootstrap
+npm install ngx-bootstrap --save
+#### Ng-Select
+npm install --save @ng-select/ng-select
 
-## Step 2:
+### Step 2: Include a theme: 
+```scss
+ style.css:
+ @import "~@ng-select/ng-select/themes/default.theme.css";
 
-install : npm install --save @ng-select/ng-select
-#### style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
+```
+### Step 3: Add this bootsrap link to your index.html : 
+```scss
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+```
+### Step 4: Import the JsonLogicEditorModule in App module:
+```js
+import { JsonLogicEditorModule } from 'projects/json-logic-editor/src/public-api';
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    JsonLogicEditorModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+### Step 5: App Module.html
+```html App Module
+  <jsonlogic-expression-editor [jsonLogic]="logic" [functions]="functions" [variables]="variables">
+```
+### Component Inputs:
+## jsonLogic :
+```
+[jsonLogic]="{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}"
+```
 
-## Step 3:
+## [functions] :
+```ts
+import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
+functions: ICheckExpressionFieldLookUp[];
+```
 
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';  
-### Add index.html : < rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
-imports App Module :  BsDatepickerModule.forRoot() 
-providers:  BsDatepickerConfig 
-
-## Step 4:
-
- ### Add Code AppComponentHtml: 
-< *ngIf="functions.length>0  && this.variables.length>0">
-  <jsonlogic-expression-editor
-  [jsonLogic]="logic" [functions]="functions" [variables]="variables"
-  ></jsonlogic-expression-editor>
-
-
-### Add Code AppComponent.ts :
-logic=`{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}`;
-
-functions:any=[];
-
-variables:any=[];
-
-constructor(private ss:AppService)
-
-{
-this.getfunctions();
+## [variables] :
+```ts
+import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
+variables :ICheckExpressionFieldLookUp[];
+```
+### Interface
+```html
+export interface ICheckExpressionFieldLookUp {
+  label?: string;
+  name?: string;
+  value: any;
+  type: string | null | undefined;  //  it will be null if  controlerType is "function" And it will not be null if  controlerType is "variable" or "value"
+  controlType?: string;   //  it will be "function" ,"variable", "value" only 
+  returnType?: string;      //  it will be null if the controllerType is  "variable" or "value"  and  it will not be null if  controlerType is "function"
+  padding?: number;
+  parameters?: ICheckExpressionFieldLookUp[];
 }
-async getfunctions(){
+``` 
 
-this.functions= await lastValueFrom(this.ss.getfunctions());
-this.variables=await lastValueFrom(this.ss.getCheckExpressionFieldsList());
-
-}
-AppModule imports :  JsonLogicEditorModule 
 
 ## Development server
 
