@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Install and Imports
 
-** Step 1: **
+## Step 1:
 install : npm i ngx-bootstrap
 Add index.html :
 
@@ -48,15 +48,15 @@ providers: ** BsDatepickerConfig **
 
 ## Step 4:
 
-** Add Code AppComponentHtml: **
+ Add Code AppComponentHtml: 
 
-<div *ngIf="functions.length>0  && this.variables.length>0">
+< *ngIf="functions.length>0  && this.variables.length>0">
   <jsonlogic-expression-editor
   [jsonLogic]="logic" [functions]="functions" [variables]="variables"
   ></jsonlogic-expression-editor>
-</div>
 
-** Add Code AppComponent.ts : **
+
+Add Code AppComponent.ts :
 logic=`{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}`;
 functions:any=[];
 variables:any=[];
