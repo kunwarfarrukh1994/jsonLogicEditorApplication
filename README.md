@@ -30,7 +30,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Step 1:
 install : npm i ngx-bootstrap
-### Add index.html :< href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
+### Add index.html :
+< href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
 
 ## Step 2:
 
@@ -61,11 +62,14 @@ functions:any=[];
 variables:any=[];
 
 constructor(private ss:AppService)
+
 {
 this.getfunctions();
 }
 async getfunctions(){
+
 this.functions= await lastValueFrom(this.ss.getfunctions());
 this.variables=await lastValueFrom(this.ss.getCheckExpressionFieldsList());
+
 }
 AppModule imports :  JsonLogicEditorModule 
