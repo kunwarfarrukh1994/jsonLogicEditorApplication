@@ -36,14 +36,14 @@ Add index.html :
 ## Step 2:
 
 install : npm install --save @ng-select/ng-select
-style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
+#### style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
 
 ## Step 3:
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';  
 Add index.html : < rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
-imports App Module : ** BsDatepickerModule.forRoot() **
-providers: ** BsDatepickerConfig **
+imports App Module :  BsDatepickerModule.forRoot() 
+providers:  BsDatepickerConfig 
 
 ## Step 4:
 
@@ -56,10 +56,13 @@ providers: ** BsDatepickerConfig **
 
 ### Add Code AppComponent.ts :
 logic=`{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}`;
+
 functions:any=[];
+
 variables:any=[];
+
 constructor(private ss:AppService){this.getfunctions()
 async getfunctions(){
 this.functions= await lastValueFrom(this.ss.getfunctions());
 this.variables=await lastValueFrom(this.ss.getCheckExpressionFieldsList());}
-AppModule imports : ** JsonLogicEditorModule **
+AppModule imports :  JsonLogicEditorModule 
