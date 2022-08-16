@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { interval, lastValueFrom, take } from 'rxjs';
+import { interval } from 'rxjs';
 import { AppService } from './app.service';
 
 @Component({
@@ -21,8 +21,8 @@ constructor(private ss:AppService){
 
 async getfunctions()
 {
-  this.functions= await lastValueFrom(this.ss.getfunctions());
-  this.variables=await lastValueFrom(this.ss.getCheckExpressionFieldsList());
+  this.functions=  await this.ss.getfunctions().toPromise();
+  this.variables= await this.ss.getCheckExpressionFieldsList().toPromise();
 }
 
 }
