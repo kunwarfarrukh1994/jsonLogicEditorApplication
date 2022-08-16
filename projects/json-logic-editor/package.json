@@ -1,12 +1,12 @@
 {
   "name": "json-logic-editor",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "peerDependencies": {
-    "@angular/common": "^13.2.0",
-    "@angular/core": "^13.2.0"
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.4.0"
   },
   "author": {
     "email": "kunwarfarrukh1995@gmail.com",
