@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as _ from 'lodash';
-import { ICheckExpressionFieldLookUp } from '../../projects/json-logic-editor/src/public-api';
+import { ICheckExpressionFieldLookUp } from 'JsonLogicEditor';
+// import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
 // import { ICheckExpressionFieldLookUp } from 'projects/json-logic-editor/src/lib/interfaces/IJsonEditor';
 @Injectable({
   providedIn: 'root'
