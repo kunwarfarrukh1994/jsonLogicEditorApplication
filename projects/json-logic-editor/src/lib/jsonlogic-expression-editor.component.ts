@@ -16,7 +16,7 @@ export class JsonlogicExpressionEditorComponent implements OnInit,AfterViewInit 
     @Input() variables: ICheckExpressionFieldLookUp[] =[];
     @Input() functions: ICheckExpressionFieldLookUp[] =[];
     plus="https://cdn0.iconfinder.com/data/icons/ui-16px-perfect-megapack-line/16/82_Add-512.png";
-    minus="https://icons-for-free.com/download-icon-minus-131964784904142604_512.png";
+    minus="https://toppng.com/uploads/preview/free-recycle-bin-icon-vector-recycle-bin-icon-115534132079jvhnualpn.png";
     JSON_LOGIC: String| undefined;
     JsonLogicObj:any={};
     checklistTemplateItemExpressions: ICheckListExpression[] = [];

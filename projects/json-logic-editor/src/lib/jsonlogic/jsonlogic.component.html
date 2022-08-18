@@ -39,28 +39,28 @@
             </div>
           </td>
             <!-- *ngIf="componentForm.get('type')?.value!=null" -->
-            <td>
+            <td (click)="changeToValue(componentForm)">
             <div *ngIf="showValueTypeControl(componentForm)" class="col-md-2m"[ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='value'}">
 
 
               <!-- <i (click)="changeToValue(componentForm)" class="fa fa-keyboard" aria-hidden="true"></i> -->
 
-              <img [src]="keyboard" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" (click)="changeToValue(componentForm)"/>
+              <img [src]="keyboard" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" />
 
             </div>
           </td>
 
-          <td>
-            <div class="col-md-2m" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='variable'}">
+          <td (click)="changeToVariable(componentForm)">
+            <div  class="col-md-2m" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='variable'}">
 
-                    <img [src]="variable" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" (click)="changeToVariable(componentForm)"/>
+                    <img [src]="variable" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" />
             </div>
           </td>
 
-          <td>
+          <td (click)="changeToFunction(componentForm)">
             <div [ngClass]="{errorborder: this.checkerror(componentForm.get('controlType'))}" class="col-md-2m" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='function'}">
 
-                    <img [src]="function"  [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" (click)="changeToFunction(componentForm)"/>
+                    <img [src]="function"  [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" />
             </div>
           </td>
           </tr>
