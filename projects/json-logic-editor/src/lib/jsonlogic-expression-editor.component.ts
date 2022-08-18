@@ -15,7 +15,7 @@ export class JsonlogicExpressionEditorComponent implements OnInit,AfterViewInit 
     @Input() jsonLogic: string | undefined;
     @Input() variables: ICheckExpressionFieldLookUp[] =[];
     @Input() functions: ICheckExpressionFieldLookUp[] =[];
-    plus="https://www.clipartmax.com/png/middle/79-791760_plus-addition-sign-circle-vector-1-icon-png.png";
+    plus="https://cdn0.iconfinder.com/data/icons/ui-16px-perfect-megapack-line/16/82_Add-512.png";
     minus="https://icons-for-free.com/download-icon-minus-131964784904142604_512.png";
     JSON_LOGIC: String| undefined;
     JsonLogicObj:any={};
@@ -244,9 +244,9 @@ export class JsonlogicExpressionEditorComponent implements OnInit,AfterViewInit 
 
 
     constructFormArray() {
-      debugger;
+
         this.checklistTemplateItemExpressions.forEach(exp => this.expressionformArray.push(this.add_checkExpressionFormGroup(exp)));
-        debugger;
+
     }
 
     add_checkExpressionFormGroup(exp: ICheckListExpression) {
