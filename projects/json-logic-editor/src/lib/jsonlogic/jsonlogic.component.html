@@ -2,12 +2,18 @@
 </ng-container>
 <ng-template #recursivecomponent let-componentForm="component">
     <form class="componentclass" [formGroup]="componentForm">
-        <div class="row" [class]="'line'+componentForm.get('padding')?.value+'px'"
-            [style.margin-left]="componentForm.get('padding')?.value+'px'">
+        <table [ngClass]="{'empthytable': componentForm.get('controlType')?.value==null}" class="rowm" [class]="'line'+componentForm.get('padding')?.value+'px'"
+            [style.margin-left]="componentForm.get('padding')?.value+'px'" style="width: 100%; overflow-x: scroll;">
+            <!-- <table class="rowm" style="width: 100%; overflow-x: scroll;"> -->
+              <tr>
+                <td>
             <div *ngIf="componentForm.get('controlType')?.value==null" class="emptycontrol emptypadding">
             <p class="emptyspace"> {{this.getPlaceHolder(componentForm)=="Select null"?"":this.getPlaceHolder(componentForm)}}</p>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
             </div>
-            <div class="col-md-6 paddingleft inputwidth" *ngIf="componentForm.get('controlType')?.value=='value'">
+          </td>
+              <td>
+            <div class="col-md-6m paddingleftm inputwidth" *ngIf="componentForm.get('controlType')?.value=='value'">
                 <!-- <input  [placeholder]="this.getPlaceHolder(componentForm)" [type]="componentForm.get('type')?.value"
                     class="form-control" placeholder="Enter Some Value" formControlName="value" /> -->
                 <div *ngIf="componentForm.get('type')?.value!='date'">
@@ -20,7 +26,10 @@
                         [bsConfig]="{dateInputFormat:'YYYY-MM-DD'}" />
                 </div>
             </div>
-            <div class="col-md-6 paddingleft"
+          </td
+          >
+          <td>
+            <div class="col-md-6m paddingleftm"
                 *ngIf="componentForm.get('controlType')?.value=='variable'  || componentForm.get('controlType')?.value=='function'">
                 <ng-select [ngClass]="{errorborder: this.checkerror(componentForm.get('value'))}" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="form-controls" [items]="filtered_fieldsList" (open)="filterlist(componentForm)"
                     (change)="onSelect(componentForm,componentForm.get('controlType')?.value)" bindLabel="label"
@@ -28,24 +37,34 @@
                     formControlName="value">
                 </ng-select>
             </div>
+          </td>
             <!-- *ngIf="componentForm.get('type')?.value!=null" -->
-            <div *ngIf="showValueTypeControl(componentForm)" class="col-md-2"[ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='value'}">
+            <td (click)="changeToValue(componentForm)">
+            <div *ngIf="showValueTypeControl(componentForm)" class="col-md-2m"[ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='value'}">
 
 
               <!-- <i (click)="changeToValue(componentForm)" class="fa fa-keyboard" aria-hidden="true"></i> -->
 
-              <img [src]="keyboard" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" (click)="changeToValue(componentForm)"/>
+              <img [src]="keyboard" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgtyping" />
 
             </div>
-            <div class="col-md-2" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='variable'}">
+          </td>
 
-                    <img [src]="variable" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" (click)="changeToVariable(componentForm)"/>
-            </div>
-            <div [ngClass]="{errorborder: this.checkerror(componentForm.get('controlType'))}" class="col-md-2" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='function'}">
+          <td (click)="changeToVariable(componentForm)">
+            <div  class="col-md-2m" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='variable'}">
 
-                    <img [src]="function"  [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" (click)="changeToFunction(componentForm)"/>
+                    <img [src]="variable" [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar" />
             </div>
-        </div>
+          </td>
+
+          <td (click)="changeToFunction(componentForm)">
+            <div [ngClass]="{errorborder: this.checkerror(componentForm.get('controlType'))}" class="col-md-2m" [ngClass]="{selectedIcon: componentForm.get('controlType')?.value=='function'}">
+
+                    <img [src]="function"  [id]="componentForm.get('padding')?.value+componentForm.get('name')?.value" class="imgvar imgfunc" />
+            </div>
+          </td>
+          </tr>
+          </table>
         <div class="lineone" *ngIf="componentForm.get('parameters')?.value!=undefined">
             <div class="linetwo" *ngFor="let group of componentForm.get('parameters')['controls'];let i=index">
                 <ng-container class="linethree" *ngTemplateOutlet="recursivecomponent;context: {component: group}">

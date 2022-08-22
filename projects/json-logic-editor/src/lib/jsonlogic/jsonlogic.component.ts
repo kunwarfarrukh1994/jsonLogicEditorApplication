@@ -16,7 +16,7 @@ export class JsonlogicComponent implements OnInit {
     filtered_fieldsList: ICheckExpressionFieldLookUp[] | null  = [];
     function="https://freesvg.org/img/ftfunct.png";
     variable="https://cdn1.iconfinder.com/data/icons/heroicons-ui/24/variable-512.png";
-    keyboard="https://www.pngitem.com/pimgs/m/234-2344433_keyboard-clipart-icon-hands-on-keyboard-icon-hd.png";
+    keyboard="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Keyboard-icon_Wikipedians.svg/1280px-Keyboard-icon_Wikipedians.svg.png";
 
     @Input() componentLocation: string| null = null;
     constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) { }
