@@ -69,7 +69,7 @@ export class AppModule {}
 ## jsonLogic :
 
 ```
-[jsonLogic]="{"and":[{"==":[{"substring":["",{"var":"SubjectPhoneNumber"},null]},""]}]}"
+[jsonLogic]="{"and":[{"==":[{"cat":["Hello ","World"]},"Hello World"]}]}"
 ```
 
 ## [functions] :
@@ -104,7 +104,14 @@ export interface ICheckExpressionFieldLookUp {
 ## Example
 
 ```ts
-functions = [
+
+functions:ICheckExpressionFieldLookUp[];
+variables:ICheckExpressionFieldLookUp[];
+
+
+@ViewChild('jsonEditor') jsonEditor : JsonlogicExpressionEditorComponent ;
+logic='';
+this.functions = [
   {
     name: "substring",
 
@@ -214,7 +221,7 @@ functions = [
   },
 ];
 
-variables = [
+this.variables = [
   {
     label: "variable1",
 
@@ -269,6 +276,12 @@ variables = [
     parameters: null,
   },
 ];
+
+
+getJsonLogic()
+{
+   console.log( this.jsonEditor.getJsonLogic());
+}
 ```
 
 ## Further help
