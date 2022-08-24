@@ -5,72 +5,97 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Install and Imports
 
 ### Step 1 Install :
+
 #### ngx-bootstrap
+
+| ngx-bootstrap | Angular         | Bootstrap CSS           |
+| ------------- | --------------- | ----------------------- |
+| 8.0.0         | 12.x.x - 13.x.x | 5.x.x or 4.x.x or 3.x.x |
+| 7.1.0         | 11.x.x - 12.x.x | 5.x.x or 4.x.x or 3.x.x |
+| 7.0.0         | 11.x.x - 12.x.x | 3.x.x or 4.x.x          |
+| 6.0.0         | 9.x.x - 10.x.x  | 3.x.x or 4.x.x          |
+| 5.6.x         | 7.x.x - 9.1.0   | 3.x.x or 4.x.x          |
+| 5.0.0 - 5.6.0 | 7.x.x - 8.x.x   | 3.x.x or 4.x.x          |
+| 4.x.x         | 6.x.x - 7.x.x   | 3.x.x or 4.x.x          |
+| 3.x.x         | 6.x.x - 7.x.x   | 3.x.x or 4.x.x          |
+| 2.x.x         | 2.x.x - 4.x.x   | 3.x.x or 4.x.x          |
+| 1.x.x         | 2.x.x           | 3.x.x or 4.x.x          |
+
 npm install ngx-bootstrap --save
+
 #### Ng-Select
+
 npm install --save @ng-select/ng-select
 
-### Step 2: Include a theme: 
-```scss
- style.css:
- @import "~@ng-select/ng-select/themes/default.theme.css";
+### Step 2: Include a theme:
 
+```scss
+style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
 ```
-### Step 3: Add this bootsrap link to your index.html : 
+
+### Step 3: Add this bootsrap link to your index.html :
+
 ```scss
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
 <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
 ```
+
 ### Step 4: Import the JsonLogicEditorModule in App module:
+
 ```js
-import { JsonLogicEditorModule } from 'projects/json-logic-editor/src/public-api';
+import { JsonLogicEditorModule } from "projects/json-logic-editor/src/public-api";
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    JsonLogicEditorModule,
-  ],
+  declarations: [AppComponent],
+  imports: [JsonLogicEditorModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 ```
+
 ### Step 5: App Module.html
+
 ```html App Module
-  <jsonlogic-expression-editor [jsonLogic]="logic" [functions]="functions" [variables]="variables">
+<jsonlogic-expression-editor
+  [jsonLogic]="logic"
+  [functions]="functions"
+  [variables]="variables"
+></jsonlogic-expression-editor>
 ```
+
 ### Component Inputs:
+
 ## jsonLogic :
+
 ```
 [jsonLogic]="{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}"
 ```
 
 ## [functions] :
+
 ```ts
 import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
 functions: ICheckExpressionFieldLookUp[];
 ```
 
 ## [variables] :
+
 ```ts
 import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
 variables :ICheckExpressionFieldLookUp[];
 ```
-### Interface
-```html
-export interface ICheckExpressionFieldLookUp {
-  label?: string;
-  name?: string;
-  value: any;
-  type: string | null | undefined;  //  it will be null if  controlerType is "function" And it will not be null if  controlerType is "variable" or "value"
-  controlType?: string;   //  it will be "function" ,"variable", "value" only 
-  returnType?: string;      //  it will be null if the controllerType is  "variable" or "value"  and  it will not be null if  controlerType is "function"
-  padding?: number;
-  parameters?: ICheckExpressionFieldLookUp[];
-}
-``` 
 
+### Interface
+
+```html
+export interface ICheckExpressionFieldLookUp { label?: string; name?: string;
+value: any; type: string | null | undefined; // it will be null if controlerType
+is "function" And it will not be null if controlerType is "variable" or "value"
+controlType?: string; // it will be "function" ,"variable", "value" only
+returnType?: string; // it will be null if the controllerType is "variable" or
+"value" and it will not be null if controlerType is "function" padding?: number;
+parameters?: ICheckExpressionFieldLookUp[]; }
+```
 
 ## Development server
 
@@ -95,5 +120,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
