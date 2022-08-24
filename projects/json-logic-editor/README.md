@@ -1,65 +1,287 @@
 # JsonLogicEditor
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+# Install and Imports
 
-## Code scaffolding
+### Step 1 Install :
 
-Run `ng generate component component-name --project JsonLogicEditor` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project JsonLogicEditor`.
+#### ngx-bootstrap
 
-> Note: Don't forget to add `--project JsonLogicEditor` or else it will be added to the default project in your `angular.json` file.
+| ngx-bootstrap | Angular         | Bootstrap CSS           |
+| ------------- | --------------- | ----------------------- |
+| 8.0.0         | 12.x.x - 13.x.x | 5.x.x or 4.x.x or 3.x.x |
+| 7.1.0         | 11.x.x - 12.x.x | 5.x.x or 4.x.x or 3.x.x |
+| 7.0.0         | 11.x.x - 12.x.x | 3.x.x or 4.x.x          |
+| 6.0.0         | 9.x.x - 10.x.x  | 3.x.x or 4.x.x          |
+| 5.6.x         | 7.x.x - 9.1.0   | 3.x.x or 4.x.x          |
+| 5.0.0 - 5.6.0 | 7.x.x - 8.x.x   | 3.x.x or 4.x.x          |
+| 4.x.x         | 6.x.x - 7.x.x   | 3.x.x or 4.x.x          |
+| 3.x.x         | 6.x.x - 7.x.x   | 3.x.x or 4.x.x          |
+| 2.x.x         | 2.x.x - 4.x.x   | 3.x.x or 4.x.x          |
+| 1.x.x         | 2.x.x           | 3.x.x or 4.x.x          |
 
-## Build
+npm install ngx-bootstrap --save
 
-Run `ng build JsonLogicEditor` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Ng-Select
 
-## Publishing
+npm install --save @ng-select/ng-select
 
-After building your library with `ng build JsonLogicEditor`, go to the dist folder `cd dist/json-logic-editor` and run `npm publish`.
+### Step 2: Include a theme:
 
-## Running unit tests
+```scss
+style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
+```
 
-Run `ng test JsonLogicEditor` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Step 3: Add this bootsrap link to your index.html :
+
+```scss
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+```
+
+### Step 4: Import the JsonLogicEditorModule in App module:
+
+```js
+import { JsonLogicEditorModule } from "projects/json-logic-editor/src/public-api";
+@NgModule({
+  declarations: [AppComponent],
+  imports: [JsonLogicEditorModule,NgSelectModule, BsDatepickerModule.forRoot(),]
+
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+### Step 5: App Module.html
+
+```html App Module
+<jsonlogic-expression-editor
+  [jsonLogic]="logic"
+  [functions]="functions"
+  [variables]="variables"
+></jsonlogic-expression-editor>
+```
+
+### Component Inputs:
+
+## jsonLogic :
+
+```
+[jsonLogic]="{"and":[{"==":[{"cat":["Hello ","World"]},"Hello World"]}]}"
+```
+
+## [functions] :
+
+```ts
+import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
+functions: ICheckExpressionFieldLookUp[];
+```
+
+## [variables] :
+
+```ts
+import { ICheckExpressionFieldLookUp } from 'json-logic-editor';
+variables :ICheckExpressionFieldLookUp[];
+```
+
+### Interface
+
+```HTML
+export interface ICheckExpressionFieldLookUp {
+  label?: string;
+  name?: string;
+  value: any;
+  type: string | null | undefined;  //  it will be null if  controlerType is "function" And it will not be null if  controlerType is "variable" or "value"
+  controlType?: string;   //  it will be "function" ,"variable", "value" only
+  returnType?: string;      //  it will be null if the controllerType is  "variable" or "value"  and  it will not be null if  controlerType is "function"
+  padding?: number;
+  parameters?: ICheckExpressionFieldLookUp[];
+}
+```
+
+## Example
+
+```ts
+
+functions:ICheckExpressionFieldLookUp[];
+variables:ICheckExpressionFieldLookUp[];
+
+
+@ViewChild('jsonEditor') jsonEditor : JsonlogicExpressionEditorComponent ;
+logic='';
+this.functions = [
+  {
+    name: "substring",
+
+    controlType: "function",
+
+    type: null,
+
+    returnType: "string",
+
+    parameters: [
+      {
+        name: "string",
+
+        type: "string",
+
+        controlType: null,
+
+        returnType: null,
+
+        parameters: null,
+      },
+
+      {
+        name: "number",
+
+        type: "number",
+
+        returnType: null,
+
+        controlType: null,
+
+        parameters: null,
+      },
+
+      {
+        name: "length?",
+
+        type: "number",
+
+        returnType: null,
+
+        controlType: null,
+
+        parameters: null,
+      },
+    ],
+  },
+
+  {
+    name: "floor",
+
+    returnType: "number",
+
+    controlType: "function",
+
+    type: null,
+
+    parameters: [
+      {
+        name: "number",
+
+        type: "number",
+
+        controlType: null,
+
+        parameters: null,
+
+        returnType: null,
+      },
+    ],
+  },
+
+  {
+    name: "cat",
+
+    returnType: "string",
+
+    controlType: "function",
+
+    type: null,
+
+    parameters: [
+      {
+        name: "string1",
+
+        type: "string",
+
+        controlType: null,
+
+        parameters: null,
+
+        returnType: null,
+      },
+
+      {
+        name: "string2",
+
+        type: "string",
+
+        controlType: null,
+
+        parameters: null,
+
+        returnType: null,
+      },
+    ],
+  },
+];
+
+this.variables = [
+  {
+    label: "variable1",
+
+    name: "variable1",
+
+    value: "variable1",
+
+    type: "string",
+
+    controlType: "variable",
+
+    returnType: null,
+
+    padding: 0,
+
+    parameters: null,
+  },
+
+  {
+    label: "variable2",
+
+    name: "variable2",
+
+    value: "variable2",
+
+    type: "string",
+
+    controlType: "variable",
+
+    returnType: null,
+
+    padding: 0,
+
+    parameters: null,
+  },
+
+  {
+    label: "variable3",
+
+    name: "variable3",
+
+    value: "variable3",
+
+    type: "string",
+
+    controlType: "variable",
+
+    returnType: null,
+
+    padding: 0,
+
+    parameters: null,
+  },
+];
+
+
+getJsonLogic()
+{
+   console.log( this.jsonEditor.getJsonLogic());
+}
+```
 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-# Install and Imports
-
-** Step 1: **
-install : npm i ngx-bootstrap
-Add index.html :
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We">
-
-## Step 2:
-
-install : npm install --save @ng-select/ng-select
-style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
-
-## Step 3:
-
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';  
-Add index.html : <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
-imports App Module : ** BsDatepickerModule.forRoot() **
-providers: ** BsDatepickerConfig **
-
-## Step 4:
-
-** Add Code AppComponentHtml: **
-
-<div *ngIf="functions.length>0  && this.variables.length>0">
-  <jsonlogic-expression-editor
-  [jsonLogic]="logic" [functions]="functions" [variables]="variables"
-  ></jsonlogic-expression-editor>
-</div>
-
-** Add Code AppComponent.ts : **
-logic=`{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}`;
-functions:any=[];
-variables:any=[];
-constructor(private ss:AppService){this.getfunctions()
-async getfunctions(){
-this.functions= await lastValueFrom(this.ss.getfunctions());
-this.variables=await lastValueFrom(this.ss.getCheckExpressionFieldsList());}
-AppModule imports : ** JsonLogicEditorModule **
