@@ -103,205 +103,171 @@ export interface ICheckExpressionFieldLookUp {
 
 ## Example
 
-```HTML
+```ts
 functions = [
+  {
+    name: "substring",
 
-{
+    controlType: "function",
 
-name: 'substring',
+    type: null,
 
-controlType: 'function',
+    returnType: "string",
 
-type: null,
+    parameters: [
+      {
+        name: "string",
 
-returnType: 'string',
+        type: "string",
 
-parameters: [
+        controlType: null,
 
-{
+        returnType: null,
 
-name: 'string',
+        parameters: null,
+      },
 
-type: 'string',
+      {
+        name: "number",
 
-controlType: null,
+        type: "number",
 
-returnType: null,
+        returnType: null,
 
-parameters: null,
+        controlType: null,
 
-},
+        parameters: null,
+      },
 
-{
+      {
+        name: "length?",
 
-name: 'number',
+        type: "number",
 
-type: 'number',
+        returnType: null,
 
-returnType: null,
+        controlType: null,
 
-controlType: null,
+        parameters: null,
+      },
+    ],
+  },
 
-parameters: null,
+  {
+    name: "floor",
 
-},
+    returnType: "number",
 
-{
+    controlType: "function",
 
-name: 'length?',
+    type: null,
 
-type: 'number',
+    parameters: [
+      {
+        name: "number",
 
-returnType: null,
+        type: "number",
 
-controlType: null,
+        controlType: null,
 
-parameters: null,
+        parameters: null,
 
-},
+        returnType: null,
+      },
+    ],
+  },
 
-],
+  {
+    name: "cat",
 
-},
+    returnType: "string",
 
-{
+    controlType: "function",
 
-name: 'floor',
+    type: null,
 
-returnType: 'number',
+    parameters: [
+      {
+        name: "string1",
 
-controlType: 'function',
+        type: "string",
 
-type: null,
+        controlType: null,
 
-parameters: [
+        parameters: null,
 
-{
+        returnType: null,
+      },
 
-name: 'number',
+      {
+        name: "string2",
 
-type: 'number',
+        type: "string",
 
-controlType: null,
+        controlType: null,
 
-parameters: null,
+        parameters: null,
 
-returnType: null,
-
-},
-
-],
-
-},
-
-{
-
-name: 'cat',
-
-returnType: 'string',
-
-controlType: 'function',
-
-type: null,
-
-parameters: [
-
-{
-
-name: 'string1',
-
-type: 'string',
-
-controlType: null,
-
-parameters: null,
-
-returnType: null,
-
-},
-
-{
-
-name: 'string2',
-
-type: 'string',
-
-controlType: null,
-
-parameters: null,
-
-returnType: null,
-
-},
-
-],
-
-},
-
+        returnType: null,
+      },
+    ],
+  },
 ];
 
 variables = [
+  {
+    label: "variable1",
 
-{
+    name: "variable1",
 
-label: 'variable1',
+    value: "variable1",
 
-name: 'variable1',
+    type: "string",
 
-value: 'variable1',
+    controlType: "variable",
 
-type: 'string',
+    returnType: null,
 
-controlType: 'variable',
+    padding: 0,
 
-returnType: null,
+    parameters: null,
+  },
 
-padding: 0,
+  {
+    label: "variable2",
 
-parameters: null,
+    name: "variable2",
 
-},
+    value: "variable2",
 
-{
+    type: "string",
 
-label: 'variable2',
+    controlType: "variable",
 
-name: 'variable2',
+    returnType: null,
 
-value: 'variable2',
+    padding: 0,
 
-type: 'string',
+    parameters: null,
+  },
 
-controlType: 'variable',
+  {
+    label: "variable3",
 
-returnType: null,
+    name: "variable3",
 
-padding: 0,
+    value: "variable3",
 
-parameters: null,
+    type: "string",
 
-},
+    controlType: "variable",
 
-{
+    returnType: null,
 
-label: 'variable3',
+    padding: 0,
 
-name: 'variable3',
-
-value: 'variable3',
-
-type: 'string',
-
-controlType: 'variable',
-
-returnType: null,
-
-padding: 0,
-
-parameters: null,
-
-},
-
+    parameters: null,
+  },
 ];
 ```
 
