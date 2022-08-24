@@ -5,7 +5,7 @@ export interface ICheckExpressionFieldLookUp {
   value: any;
   type: string | null | undefined;
   controlType?: string;
-  returnType?: string;
+  returnType?: string |null | undefined;
   padding?: number;
   parameters?: ICheckExpressionFieldLookUp[];
 }

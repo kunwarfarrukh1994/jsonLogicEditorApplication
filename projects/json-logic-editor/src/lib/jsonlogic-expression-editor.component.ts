@@ -88,6 +88,29 @@ export class JsonlogicExpressionEditorComponent implements OnInit,AfterViewInit 
           this.variables.push(f);
         });
     }
+
+    SetttingsForVariableAndFunctions(functions:ICheckExpressionFieldLookUp[] | undefined)
+    {
+      functions?.forEach(f=>{
+        if(f.parameters?.length)
+        {
+            this.SetttingsForVariableAndFunctions(f.parameters);
+        }
+        else
+        {
+            if(f.controlType=="variable")
+            {
+                f.returnType=null;
+            }
+            if(f.controlType=="function")
+            {
+                f.type=null;
+            }
+        }
+      });
+
+    }
+
     constructModelLogic() {
         // let json_logic = `{"and":[{"==":[{"var":"Name"},{"cat":["farrukh ","khan"]}]}]}`;
         // let json_logic = `{"and":[{"==":[{"cat":["farrukh ","khan"]},{"var":"Name"}]}]}`;
