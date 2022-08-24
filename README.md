@@ -46,12 +46,8 @@ style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
 import { JsonLogicEditorModule } from "projects/json-logic-editor/src/public-api";
 @NgModule({
   declarations: [AppComponent],
-  imports: [JsonLogicEditorModule,NgSelectModule]
-  imports: [
-    BrowserAnimationsModule,
-    BsDatepickerModule.forRoot(),
-    ...
-  ]
+  imports: [JsonLogicEditorModule,NgSelectModule, BsDatepickerModule.forRoot(),]
+
   providers: [],
   bootstrap: [AppComponent],
 })
@@ -73,7 +69,7 @@ export class AppModule {}
 ## jsonLogic :
 
 ```
-[jsonLogic]="{"and":[{"==":[{"substring":["ffff",{"var":"SubjectPhoneNumber"},null]},"sssss"]}]}"
+[jsonLogic]="{"and":[{"==":[{"substring":["",{"var":"SubjectPhoneNumber"},null]},""]}]}"
 ```
 
 ## [functions] :
@@ -92,18 +88,22 @@ variables :ICheckExpressionFieldLookUp[];
 
 ### Interface
 
-```html
-export interface ICheckExpressionFieldLookUp { label?: string; name?: string;
-value: any; type: string | null | undefined; // it will be null if controlerType
-is "function" And it will not be null if controlerType is "variable" or "value"
-controlType?: string; // it will be "function" ,"variable", "value" only
-returnType?: string; // it will be null if the controllerType is "variable" or
-"value" and it will not be null if controlerType is "function" padding?: number;
-parameters?: ICheckExpressionFieldLookUp[]; }
+```HTML
+export interface ICheckExpressionFieldLookUp {
+  label?: string;
+  name?: string;
+  value: any;
+  type: string | null | undefined;  //  it will be null if  controlerType is "function" And it will not be null if  controlerType is "variable" or "value"
+  controlType?: string;   //  it will be "function" ,"variable", "value" only
+  returnType?: string;      //  it will be null if the controllerType is  "variable" or "value"  and  it will not be null if  controlerType is "function"
+  padding?: number;
+  parameters?: ICheckExpressionFieldLookUp[];
+}
 ```
 
 ## Example
 
+```HTML
 functions = [
 
 {
@@ -303,6 +303,7 @@ parameters: null,
 },
 
 ];
+```
 
 ## Further help
 
