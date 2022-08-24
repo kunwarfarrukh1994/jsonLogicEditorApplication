@@ -46,7 +46,12 @@ style.css: @import "~@ng-select/ng-select/themes/default.theme.css";
 import { JsonLogicEditorModule } from "projects/json-logic-editor/src/public-api";
 @NgModule({
   declarations: [AppComponent],
-  imports: [JsonLogicEditorModule],
+  imports: [JsonLogicEditorModule,NgSelectModule]
+  imports: [
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
+    ...
+  ]
   providers: [],
   bootstrap: [AppComponent],
 })
@@ -97,25 +102,207 @@ returnType?: string; // it will be null if the controllerType is "variable" or
 parameters?: ICheckExpressionFieldLookUp[]; }
 ```
 
-## Development server
+## Example
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+functions = [
 
-## Code scaffolding
+{
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+name: 'substring',
 
-## Build
+controlType: 'function',
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+type: null,
 
-## Running unit tests
+returnType: 'string',
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+parameters: [
 
-## Running end-to-end tests
+{
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities...
+name: 'string',
+
+type: 'string',
+
+controlType: null,
+
+returnType: null,
+
+parameters: null,
+
+},
+
+{
+
+name: 'number',
+
+type: 'number',
+
+returnType: null,
+
+controlType: null,
+
+parameters: null,
+
+},
+
+{
+
+name: 'length?',
+
+type: 'number',
+
+returnType: null,
+
+controlType: null,
+
+parameters: null,
+
+},
+
+],
+
+},
+
+{
+
+name: 'floor',
+
+returnType: 'number',
+
+controlType: 'function',
+
+type: null,
+
+parameters: [
+
+{
+
+name: 'number',
+
+type: 'number',
+
+controlType: null,
+
+parameters: null,
+
+returnType: null,
+
+},
+
+],
+
+},
+
+{
+
+name: 'cat',
+
+returnType: 'string',
+
+controlType: 'function',
+
+type: null,
+
+parameters: [
+
+{
+
+name: 'string1',
+
+type: 'string',
+
+controlType: null,
+
+parameters: null,
+
+returnType: null,
+
+},
+
+{
+
+name: 'string2',
+
+type: 'string',
+
+controlType: null,
+
+parameters: null,
+
+returnType: null,
+
+},
+
+],
+
+},
+
+];
+
+variables = [
+
+{
+
+label: 'variable1',
+
+name: 'variable1',
+
+value: 'variable1',
+
+type: 'string',
+
+controlType: 'variable',
+
+returnType: null,
+
+padding: 0,
+
+parameters: null,
+
+},
+
+{
+
+label: 'variable2',
+
+name: 'variable2',
+
+value: 'variable2',
+
+type: 'string',
+
+controlType: 'variable',
+
+returnType: null,
+
+padding: 0,
+
+parameters: null,
+
+},
+
+{
+
+label: 'variable3',
+
+name: 'variable3',
+
+value: 'variable3',
+
+type: 'string',
+
+controlType: 'variable',
+
+returnType: null,
+
+padding: 0,
+
+parameters: null,
+
+},
+
+];
 
 ## Further help
 
